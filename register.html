@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navbar and Content</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="register.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="header-container">
+      <div class="logo">
+        <img src="logo00.png" alt="Logo 1" class="logo-img">
+        <img src="logo01.png" alt="Logo 2" class="logo-img">
+      </div>
+
+      <div class="text-options">
+        <!-- ✅ กกก และ ไทย ENG อยู่บรรทัดเดียวกัน -->
+        <div class="text-row">
+          <ul class="font-size-options">
+            <li><a href="#">ก</a></li>
+            <li><a href="#">ก</a></li>
+            <li><a href="#">ก</a></li>
+          </ul>
+          <ul class="language-options">
+            <li><a href="#">ไทย</a></li>
+            <li>|</li>
+            <li><a href="#">ENG</a></li>
+          </ul>
+        </div>
+
+        <!-- ✅ เบอร์โทรศัพท์อยู่บรรทัดถัดไป -->
+        <div class="phone-number">026-845-9715</div>
+      </div>
+    </div>
+  </header>
+
+
+
+  <!-- ✅ Navbar Section -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Register</a></li>
+        <li><a href="#">รายชื่อ</a></li>
+        <li><a href="#">Standings</a></li>
+        <li><a href="#">ตารางการแข่ง</a></li>
+        <li><a href="#">Scout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <form class="upload-form">
+    <!-- วงกลมแสดงตัวอย่างรูป -->
+    <div class="preview-container">
+      <span class="preview-text">รูปภาพ</span> <!-- ข้อความกลางวงกลม -->
+      <img id="preview-image" src="" alt="Preview" class="preview-img">
+    </div>
+
+    <!-- ปุ่มอัปโหลดรูป -->
+    <label for="upload-image" class="upload-button">upload</label>
+    <input type="file" id="upload-image" class="upload-input" accept="image/*">
+  </form>wdadwadadadw
+
+  <div>
+    <form class="register">
+      <section>
+        <label for="Team-name">Team-name(ภาษาไทย)</label>
+        <input id="Team-name" name="Team-name" type="text" required />
+        <p>ชื่อสโมสรที่เข้าร่วมการแข่งขัน (ภาษาไทย)</p>
+      </section>
+      <section>
+        <label for="Team-name">Team-name(ENG)</label>
+        <input id="Team-name(ENG)" name="Team-name(ENG)" type="text" />
+        <p>ชื่อสโมสรที่เข้าร่วมการแข่งขัน (ภาษาอังกฤษ)</p>
+      </section>
+      <section>
+        <label for="Register Form Upload">Register Form Upload</label>
+        <input id="Register Form Upload" name="Register Form Upload" type="file" required />
+        <p>อนุญาติ upload เฉพาะไฟล์ Excel แผงรูปที่ทางฝ่ายจัดแจก Template เท่านั้น  (ขนาดไม่เกิน 10 Mb)</p>
+      </section>
+      <section>
+        <label for="Organization Name">Organization Name</label>
+        <input id="Organization Name" name="Organization Name" type="text" required />
+        <p>ชื่อองค์กร / บริษัท  ผู้รับรองสิทธิ์ทีม (ภาษาไทย)</p>
+      </section>
+      <section>
+        <label for="Organization Certification">Organization Certification</label>
+        <input id="Organization Certification" name="Organization Certification" type="file" />
+        <p>เอกสารรับรองสโมสร จากหน่วยงาน หรือ องค์กร ที่จัดส่ง(ต้องมีการรับรองโดยผู้มีอำนาจลงนาม พร้อมตราประทับ)(กรุณาใช้ PDF, JPG, PNG, เท่านั้น) จำกัดไฟล์ไม่เกิน 10Mb</p>
+      </section>
+      <section>
+        <label for="Organization_Type">Organization Type</label>
+        <select id="Organization_Type" name="Organization_Type" required>
+          <option value="เลือก">เลือก</option>
+          <option value="สมาคมกีฬาจังหวัด">สมาคมกีฬาจังหวัด</option>
+          <option value="สถาบันการศึกษา">สถาบันการศึกษา</option>
+          <option value="องค์กรของรัฐ">องค์กรของรัฐ</option>
+          <option value="องค์กรเอกชนที่จดทะเบียนเป็นนิติบุคคลตามกฎหมาย">องค์กรเอกชนที่จดทะเบียนเป็นนิติบุคคลตามกฎหมาย
+          </option>
+          <option value="Academy">Academy</option>
+          <option value="บุคคลทั่วไป(วางประกัน5,000)">บุคคลทั่วไป(วางประกัน5,000)</option>
+          <p>ประเภทและระดับขององค์กรสมาชิก</p>
+        </select>
+      </section>
+      <section>
+        <label for="Head Coach Name">Head Coach Name</label>
+        <input id="Head Coach Name" name="Head Coach Name" type="text" required />
+        <p>ชื่อหัวหน้าผู้ฝึกสอน </p>
+      </section>
+      <section>
+        <label for="Mobile Number(Coach)">Mobile Number(Coach)</label>
+        <input id="Mobile Number(Coach)" name="Mobile Number(Coach)" type="text" required />
+        <p>เบอร์โทรศัทพ์ ที่ใช้ในการติดต่อ หัวหน้าผู้ฝึกสอน</p>
+      </section>
+      <section>
+        <label for="Contact Name">Contact Name</label>
+        <input id="Contact Name" name="Contact Name" type="text" required />
+        <p>ชื่อผู้ประสานงาน (ภาษาไทย)</p>
+      </section>
+      <section>
+        <label for="Contact Telephone Number">Contact Telephone Number</label>
+        <input id="Contact Telephone Number" name="Contact Telephone Number" type="text" required />
+        <p>เบอร์โทรศัพท์ผู้ประสานงาน (กรอกข้อมูลเฉพาะตัวเลข)</p>
+      </section>
+      <section>
+        <label for="Contact Email Address">Contact Email Address</label>
+        <input id="Contact Email Address" name="Contact Email Address" type="email" required />
+        <p>ที่อยู่ Email ผู้ประสานงาน</p>
+      </section>
+      <section>
+        <label for="Contact LINE ID">Contact LINE ID</label>
+        <input id="Contact LINE ID" name="Contact LINE ID" type="text" required />
+        <p>ID Application LINE เพื่อใช้ในการติดต่อประสานงาน</p>
+      </section>
+      <section>
+        <label for="ID Card">ID Card</label>
+        <input id="ID Card" name="ID Card" type="file" required />
+        <p>หน้าบัตรประชาชน ตามชื่อเจ้าของสิทธิ์หรือผู้สมัคร(กรุณาใช้ PDF, JPG, PNG, เท่านั้น) จำกัดไฟล์ไม่เกิน 10Mb</p>
+      </section>
+      <section>
+        <label for="Book Bank">Book Bank</label>
+        <input id="Book Bank" name="Book Bank" type="file" />
+        <p>หน้าสมุดบัญชีธนาคาร เจ้าของสิทธิ์ทีม หรือผู้สมัคร</p>
+      </section>
+      <section>
+        <label for="POWER OF ATTORNEY FILE">POWER OF ATTORNEY FILE</label>
+        <input id="POWER OF ATTORNEY FILE" name="POWER OF ATTORNEY FILE" type="file" />
+        <p>หนังสือมอบอำนาจ กรณี Book Bank ไม่ใช่ของเจ้าของสิทธิ์ สโมสร (กรุณาใช้ PDF, JPG, PNG, เท่านั้น) จำกัดไฟล์ไม่เกิน 10Mb</p>
+      </section>
+      <section>
+        <label for="Participating provinces">จังหวัดที่เข้าแข่งขัน</label>
+        <select id="Participating provinces" name="Participating provinces">
+          <option value="เลือก">เลือก</option>
+          <option value="ตาก (ZONE 4)">ตาก (ZONE 4)</option>
+          <option value="เชียงใหม่ (ZONE 4)">เชียงใใหม่ (ZONE 4)</option>
+          <option value="กทม (ZONE 1)">กทม (ZONE 1)</option>
+        </select>
+      </section>
+      <button>ยืนยัน</button>
+    </form>
+  </div>
+
+
+</body>
+
+<script>
+  document.querySelector(".upload-button").addEventListener("click", function () {
+    document.getElementById("upload-image").click();
+  });
+
+  document.getElementById("upload-image").addEventListener("change", function (event) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        document.getElementById("preview-image").src = e.target.result;
+        document.getElementById("preview-image").style.display = "block"; // แสดงรูป
+        document.querySelector(".preview-text").style.display = "none"; // ซ่อนข้อความ
+      };
+      reader.readAsDataURL(file);
+    }
+  });
+</script>
+
+
+
+
+</html>
