@@ -1,0 +1,192 @@
+.main_bar{
+  display: flex;
+  justify-content:center ;
+  margin-top: 20px;
+
+  .tab_bar{
+    width: 500px;
+    background: var(--white);
+    border-radius: 30px;
+    box-shadow: 0px 4px 8px var(--shadow);
+    padding: 10px 10%;
+  }
+
+  .tab{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+  }
+  .tab a {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    color: #2375d8;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .tab li {
+    white-space: nowrap; /* ✅ บังคับให้ข้อความไม่ตัดบรรทัด */
+  }
+  
+  
+  .tab a:hover {
+    color: white;
+    background-color: #EC4138;
+    border-radius: 5px;
+  }
+}
+
+
+.container {
+  max-width: 900px;
+  margin:10px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
+  .search{
+    width: max-content;
+    display: flex;
+    align-items: center;
+    padding: 14px;
+    border-radius: 10px;
+    background: #ffffff;
+    transition: background 0.25s;
+  
+    .search-input {
+      font-size: 16px;
+      font-family: 'Arial', sans-serif;
+      color: #333;
+      margin-left: 14px;
+      outline: none;
+      border: 2px solid #0092D2;  /* ✅ เพิ่มเส้นขอบสีน้ำเงิน */
+      border-radius: 5px; /* ✅ ปรับให้มีมุมโค้ง */
+      padding: 8px 12px; /* ✅ เพิ่มพื้นที่ภายใน */
+      background: white;
+      width: 300px;
+  }
+  
+  .search-input:focus {
+      border-color: #16478D; /* ✅ เปลี่ยนสีขอบเมื่อคลิก */
+      box-shadow: 0 0 5px rgba(0, 146, 210, 0.5);
+  }
+  }
+
+  input, select, button {
+    padding: 8px;
+    margin: 5px;
+    border: 1px solid #0379AC;
+    border-radius: 5px;
+  }
+  button {
+    background-color: #E5F8FF;
+    color: #16478D;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  button:hover {
+    background-color: #0092D2;
+    color: white;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: rgb(255, 255, 255);
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  th {
+    background-color: #0092D2;
+    color: white;
+  }
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  tr:hover {
+    background-color: #f1f1f1;
+  }
+  .popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    text-align: center;
+  }
+  .popup input, .popup select {
+    width: 90%;
+  }
+  .popup button {
+    width: 45%;
+  }
+  .preview-img {
+    max-width: 100px;
+    max-height: 100px;
+    display: block;
+    margin: 10px auto;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  .delete-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  .delete-btn:hover {
+    background-color: #c0392b;
+  }
+  
+}
+
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.player-card {
+  width: 150px;
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.player-card img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}
+

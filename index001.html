@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบจัดการนักกีฬา</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        input, select, button {
+            padding: 8px;
+            margin: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            text-align: center;
+        }
+        .popup input, .popup select {
+            width: 90%;
+        }
+        .popup button {
+            width: 45%;
+        }
+        .preview-img {
+            max-width: 100px;
+            max-height: 100px;
+            display: block;
+            margin: 10px auto;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .delete-btn {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .delete-btn:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>ระบบจัดการนักกีฬา</h2>
+        <input class="search-input" type="text" id="search" placeholder="search..." onkeyup="searchTable()">
+        <br>
+        <button onclick="openPopup()">เพิ่มข้อมูล</button>
+        <div class="popup" id="popup">
+            <h3>เพิ่มข้อมูลนักกีฬา</h3>
+            <input type="text" id="name" placeholder="ชื่อ-นามสกุล">
+            <input type="text" id="idCard" placeholder="เลขบัตรประชาชน">
+            <input type="date" id="dob">
+            <input type="number" id="jerseyNumber" placeholder="หมายเลขเสื้อ">
+            <select id="position">
+                <option value="กองหน้า">กองหน้า</option>
+                <option value="กองกลาง">กองกลาง</option>
+                <option value="กองหลัง">กองหลัง</option>
+                <option value="ผู้รักษาประตู">ผู้รักษาประตู</option>
+            </select>
+            <input type="file" id="image" accept="image/*" onchange="previewImage()">
+            <img id="imagePreview" class="preview-img" style="display:none;">
+            <button onclick="addPlayer()">บันทึก</button>
+            <button onclick="closePopup()">ยกเลิก</button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>ลำดับ</th>
+                    <th>หมายเลขเสื้อ</th>
+                    <th>ชื่อ-นามสกุล</th>
+                    <th>วัน/เดือน/ปีเกิด</th>
+                    <th>ตำแหน่ง</th>
+                    <th>รูปภาพ</th>
+                    <th>ลบ</th>
+                </tr>
+            </thead>
+            <tbody id="playerTable">
+            </tbody>
+        </table>
+    </div>
+    <script>
+        let playerCount = 0;
+        function openPopup() {
+            document.getElementById('popup').style.display = 'block';
+        }
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+        function previewImage() {
+            const file = document.getElementById('image').files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('imagePreview').src = e.target.result;
+                    document.getElementById('imagePreview').style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+        function addPlayer() {
+            const name = document.getElementById('name').value;
+            const idCard = document.getElementById('idCard').value;
+            const dob = document.getElementById('dob').value;
+            const jerseyNumber = document.getElementById('jerseyNumber').value;
+            const position = document.getElementById('position').value;
+            const imageFile = document.getElementById('image').files[0];
+            
+            if (!name || !idCard || !dob || !jerseyNumber || !position || !imageFile) {
+                alert("กรุณากรอกข้อมูลให้ครบถ้วนและอัปโหลดรูปภาพ");
+                return;
+            }
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                playerCount++;
+                const table = document.getElementById('playerTable');
+                const row = table.insertRow();
+                row.insertCell(0).innerText = playerCount;
+                row.insertCell(1).innerText = jerseyNumber;
+                row.insertCell(2).innerText = name;
+                row.insertCell(3).innerText = dob;
+                row.insertCell(4).innerText = position;
+                
+                const imgCell = row.insertCell(5);
+                const imgElement = document.createElement('img');
+                imgElement.src = e.target.result;
+                imgElement.style.maxWidth = '50px';
+                imgElement.style.maxHeight = '50px';
+                imgCell.appendChild(imgElement);
+                
+                const deleteCell = row.insertCell(6);
+                const deleteButton = document.createElement('button');
+                deleteButton.innerText = 'ลบ';
+                deleteButton.classList.add('delete-btn');
+                deleteButton.onclick = function() { row.remove(); updateRowNumbers(); };
+                deleteCell.appendChild(deleteButton);
+                
+                closePopup();
+            };
+            reader.readAsDataURL(imageFile);
+        }
+        function searchTable() {
+            const filter = document.getElementById('search').value.toLowerCase();
+            const rows = document.getElementById('playerTable').getElementsByTagName('tr');
+            for (let row of rows) {
+                row.style.display = row.innerText.toLowerCase().includes(filter) ? '' : 'none';
+            }
+        }
+        function updateRowNumbers() {
+            playerCount = 0;
+            document.querySelectorAll("#playerTable tr").forEach(row => {
+                row.cells[0].innerText = ++playerCount;
+            });
+        }
+    </script>
+</body>
+</html>

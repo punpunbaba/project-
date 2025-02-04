@@ -24,12 +24,12 @@
         <!-- ✅ กกก และ ไทย ENG อยู่บรรทัดเดียวกัน -->
         <div class="text-row">
           <ul class="font-size-options">
-            <li><a href="#">ก</a></li>
-            <li><a href="#">ก</a></li>
-            <li><a href="#">ก</a></li>
+            <li><a href="#" class="size-1">ก</a></li>
+            <li class="active"><a href="#" class="size-2">ก</a></li>
+            <li><a href="#" class="size-3">ก</a></li>
           </ul>
           <ul class="language-options">
-            <li><a href="#">ไทย</a></li>
+            <li><a href="#" class="Thai">ไทย</a></li>
             <li>|</li>
             <li><a href="#">ENG</a></li>
           </ul>
@@ -39,24 +39,20 @@
         <div class="phone-number">026-845-9715</div>
       </div>
     </div>
-  </header>
-
-
-
-  <!-- ✅ Navbar Section -->
-  <nav class="navbar">
-    <div class="navbar-container">
-      <ul class="nav-links">
+    <!-- ✅ Navbar Section -->
+    <nav class="navbar">
+      <ul class="nav">
         <li><a href="#">Home</a></li>
         <li><a href="#">Register</a></li>
-        <li><a href="#">รายชื่อ</a></li>
+        <li><a href="#">Team</a></li>
         <li><a href="#">Standings</a></li>
-        <li><a href="#">ตารางการแข่ง</a></li>
+        <li><a href="#">Match Schedule</a></li>
         <li><a href="#">Scout</a></li>
       </ul>
-    </div>
-  </nav>
+    </nav>
+  </header>
 
+  <div class="reg">
   <form class="upload-form">
     <!-- วงกลมแสดงตัวอย่างรูป -->
     <div class="preview-container">
@@ -69,7 +65,6 @@
     <input type="file" id="upload-image" class="upload-input" accept="image/*">
   </form>
 
-  <div>
     <form class="register">
       <section>
         <label for="Team-name">Team-name(ภาษาไทย)</label>
@@ -160,13 +155,14 @@
         <select id="Participating provinces" name="Participating provinces">
           <option value="เลือก">เลือก</option>
           <option value="ตาก (ZONE 4)">ตาก (ZONE 4)</option>
-          <option value="เชียงใหม่ (ZONE 4)">เชียงใใหม่ (ZONE 4)</option>
+          <option value="เชียงใหม่ (ZONE 4)">เชียงใหม่ (ZONE 4)</option>
           <option value="กทม (ZONE 1)">กทม (ZONE 1)</option>
         </select>
       </section>
       <button>ยืนยัน</button>
     </form>
   </div>
+
 
 
 </body>
